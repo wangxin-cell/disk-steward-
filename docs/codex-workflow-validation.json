@@ -1,0 +1,163 @@
+{
+  "record_version": 2,
+  "date": "2026-11-05",
+  "host": "codex-cli",
+  "host_version": "0.166.0-alpha.6",
+  "os": "Windows",
+  "python_version": "3.13.11",
+  "model_version": null,
+  "skill_manifest_sha256": "515dc1d469b1599d8102835b1f68311553737f4c077c67c88861cb78a346affc",
+  "skill_content_changed_since_0_4_0": true,
+  "scenario": "diagnose",
+  "attempts": 2,
+  "trigger_intent": "natural-language storage request without an explicit skill name",
+  "fixture": {
+    "new_synthetic_files": 35,
+    "logical_bytes": 11776,
+    "requested_additional_space_gib": 1,
+    "actual_drive": "D",
+    "cross_volume_test": false,
+    "source_skill_and_canary_snapshot_unchanged": true,
+    "baseline_hash_unchanged": true
+  },
+  "configuration": {
+    "values_describe_requested_cli_configuration": true,
+    "existing_runtime_and_saved_login": true,
+    "controlled_configuration": true,
+    "ignore_user_config": true,
+    "normal_user_configuration_verified": false,
+    "ephemeral": true,
+    "sandbox": "workspace-write",
+    "approval_policy": "never",
+    "command_network_access": false,
+    "web_search": "disabled",
+    "update_check": false,
+    "analytics": false,
+    "sandbox_or_rules_bypassed": false,
+    "sqlite_and_log_paths": "private case-local directories",
+    "wall_clock_limit_seconds": 240,
+    "timeout_reached": false,
+    "authentication_files_copied_or_read_by_runner": false,
+    "additional_turn_scoped_permissions": {
+      "filesystem_write": "normal Codex arg0 temporary directory only",
+      "network": "native model connection allowed; command network access still requested disabled",
+      "explicitly_granted_before_attempt": true
+    }
+  },
+  "observed_result": {
+    "classification": "environment_blocked_before_observed_model_execution",
+    "process_exit_code": 1,
+    "fatal_stage": "in-process app-server client initialization",
+    "error": "Access denied (os error 5)",
+    "warnings": [],
+    "exact_fatal_path_identified": false,
+    "jsonl_events": 0,
+    "event_stream_bytes": 0,
+    "runner_error": null,
+    "last_message_present": false,
+    "requested_report_files_present": false,
+    "artifact_verification_passed": false,
+    "artifact_verification_failure": "Required artifacts missing",
+    "model_triggering_verified": false,
+    "host_workflow_verified": false,
+    "temporary_state_warnings_absent_after_grant": true
+  },
+  "scope": {
+    "software_downloaded_or_installed_by_this_test": false,
+    "personal_files_scanned_copied_or_deleted": false,
+    "global_skill_installation": false,
+    "publication": false,
+    "raw_transcripts_or_machine_paths_published": false
+  },
+  "interpretation": [
+    "A fresh fixture was used after explicit temporary-state write and network permissions were granted.",
+    "The earlier temporary-state warnings disappeared, but the same fatal initialization error remained.",
+    "The temporary directory cannot be treated as the proven sole cause; the exact fatal target remains unknown.",
+    "There were no observed model or tool events, and requested reports were absent. This remains an environment blocker, not a trigger failure or workflow pass.",
+    "Baseline and protected snapshots remained unchanged; snapshots do not prove all read scope or rule out transient changes later undone.",
+    "No further filesystem permission expansion or sandbox/rules bypass followed this failure.",
+    "The installed stdio app-server parser does not accept --ignore-user-config before or after app-server, so that alternative was not claimed to be an equivalent controlled configuration.",
+    "DeepSeek Harness was not downloaded, installed or run."
+  ],
+  "skill_version": "0.5.0-alpha",
+  "prior_attempts": [
+    {
+      "record_version": 1,
+      "date": "2026-11-05",
+      "host": "codex-cli",
+      "host_version": "0.166.0-alpha.6",
+      "os": "Windows",
+      "python_version": "3.13.11",
+      "model_version": null,
+      "skill_manifest_sha256": "fea7e249f0147278b2915b71664efa625032a1ee9cb2a0b09753432742d69e2f",
+      "skill_content_changed_since_0_4_0": false,
+      "scenario": "diagnose",
+      "attempts": 1,
+      "trigger_intent": "natural-language storage request without an explicit skill name",
+      "fixture": {
+        "new_synthetic_files": 35,
+        "logical_bytes": 11776,
+        "requested_additional_space_gib": 1,
+        "actual_drive": "D",
+        "cross_volume_test": false,
+        "source_skill_and_canary_snapshot_unchanged": true,
+        "baseline_hash_unchanged": true
+      },
+      "configuration": {
+        "values_describe_requested_cli_configuration": true,
+        "existing_runtime_and_saved_login": true,
+        "controlled_configuration": true,
+        "ignore_user_config": true,
+        "normal_user_configuration_verified": false,
+        "ephemeral": true,
+        "sandbox": "workspace-write",
+        "approval_policy": "never",
+        "command_network_access": false,
+        "web_search": "disabled",
+        "update_check": false,
+        "analytics": false,
+        "sandbox_or_rules_bypassed": false,
+        "sqlite_and_log_paths": "private case-local directories",
+        "wall_clock_limit_seconds": 240,
+        "timeout_reached": false,
+        "authentication_files_copied_or_read_by_runner": false
+      },
+      "observed_result": {
+        "classification": "environment_blocked_before_observed_model_execution",
+        "process_exit_code": 1,
+        "fatal_stage": "in-process app-server client initialization",
+        "error": "Access denied (os error 5)",
+        "warnings": [
+          "Stale arg0 temporary-directory cleanup denied",
+          "PATH-alias creation in the normal Codex temporary-state area denied"
+        ],
+        "exact_fatal_path_identified": false,
+        "jsonl_events": 0,
+        "event_stream_bytes": 0,
+        "runner_error": null,
+        "last_message_present": false,
+        "requested_report_files_present": false,
+        "artifact_verification_passed": false,
+        "artifact_verification_failure": "Required artifacts missing",
+        "model_triggering_verified": false,
+        "host_workflow_verified": false
+      },
+      "scope": {
+        "software_downloaded_or_installed_by_this_test": false,
+        "personal_files_scanned_copied_or_deleted": false,
+        "global_skill_installation": false,
+        "publication": false,
+        "raw_transcripts_or_machine_paths_published": false
+      },
+      "interpretation": [
+        "This is retained failure evidence, not a successful host workflow or a model-trigger failure.",
+        "No model execution was observed; empty event output does not attest every possible internal network or state operation.",
+        "Because no tool execution was observed, requested sandbox, command-network and approval settings were not exercised.",
+        "The temporary-state warnings do not identify the sole cause of the fatal initialization failure.",
+        "Artifact checks confirm the protected snapshot remained unchanged but cannot prove all read scope or exclude transient changes later undone.",
+        "A fresh test in a documented working host environment is still needed. No broader permission or sandbox bypass was used to force this attempt through.",
+        "DeepSeek Harness was not downloaded, installed or run."
+      ]
+    }
+  ]
+}

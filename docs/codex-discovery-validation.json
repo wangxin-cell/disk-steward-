@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "host_version": "codex-cli 0.166.0-alpha.6",
+  "platform": "native Windows",
+  "status": "passed",
+  "skill_manifest_sha256": "515dc1d469b1599d8102835b1f68311553737f4c077c67c88861cb78a346affc",
+  "skill": "disk-steward",
+  "layout": "project/.agents/skills/disk-steward/SKILL.md",
+  "scope": "repo",
+  "enabled": true,
+  "ui_metadata_parsed": true,
+  "discovery_errors": [],
+  "requests_sent": [
+    "initialize",
+    "initialized",
+    "skills/list"
+  ],
+  "state_isolation": "child-only disposable CODEX_HOME",
+  "downloads": false,
+  "model_calls": false,
+  "global_configuration_changes": false,
+  "limits": "Discovery and metadata parsing only, not model invocation or script execution",
+  "skill_version": "0.5.0-alpha",
+  "prior_discovery_records": [
+    {
+      "date": "2026-11-05",
+      "host_version": "codex-cli 0.166.0-alpha.6",
+      "platform": "native Windows",
+      "status": "passed",
+      "skill_manifest_sha256": "fea7e249f0147278b2915b71664efa625032a1ee9cb2a0b09753432742d69e2f",
+      "skill": "disk-steward",
+      "layout": "project/.agents/skills/disk-steward/SKILL.md",
+      "scope": "repo",
+      "enabled": true,
+      "ui_metadata_parsed": true,
+      "discovery_errors": [],
+      "requests_sent": [
+        "initialize",
+        "initialized",
+        "skills/list"
+      ],
+      "state_isolation": "child-only disposable CODEX_HOME",
+      "downloads": false,
+      "model_calls": false,
+      "global_configuration_changes": false,
+      "limits": "Discovery and metadata parsing only, not model invocation or script execution",
+      "skill_version": "0.4.0-alpha"
+    }
+  ]
+}

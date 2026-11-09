@@ -1,0 +1,47 @@
+{
+  "record_version": 1,
+  "date": "2026-11-05",
+  "platform": "native Windows",
+  "python_version": "3.13.11",
+  "collector_sha256": "793a549175cf3ac37c794178cde40aab3eca79ead2aa097a14f8763b9ca79689",
+  "collector_changed_since_0_5_0": false,
+  "execution": {
+    "backend": "real local Windows winreg",
+    "entry_budget": 1000,
+    "exit_code": 0,
+    "schema_valid": true,
+    "entries_examined": 102,
+    "retained_registration_records": 94,
+    "incomplete": true,
+    "output_bytes": 26475,
+    "raw_inventory_retained_privately": true,
+    "application_names_or_locations_published": false
+  },
+  "scope_results": [
+    {"hive": "HKLM", "view": "32", "status": "partial", "entries_examined": 32, "recorded_error_count": 4},
+    {"hive": "HKLM", "view": "64", "status": "partial", "entries_examined": 70, "recorded_error_count": 4},
+    {"hive": "HKCU", "view": "32", "status": "partial", "entries_examined": 0, "recorded_error_count": 1},
+    {"hive": "HKCU", "view": "64", "status": "partial", "entries_examined": 0, "recorded_error_count": 1}
+  ],
+  "registry_api_audit": {
+    "allowed_observed_event_counts": {
+      "winreg.OpenKey": 106,
+      "winreg.OpenKey/result": 96,
+      "winreg.EnumKey": 104,
+      "winreg.QueryValue": 376
+    },
+    "unexpected_registry_events": [],
+    "other_winreg_events_blocked_by_validation_hook": true,
+    "scope": "Python audit event names and counts, not a complete operating-system access trace"
+  },
+  "interpretation": [
+    "The real native collector generated a structurally valid partial inventory; exit code zero does not mean complete coverage.",
+    "Retained records are registrations, not a count of installed applications; views and records may overlap.",
+    "Both local-machine scopes had unreadable enumerated child keys. Both current-user scopes could not be read.",
+    "The collector retained generic read-failure categories, not the underlying Windows error codes, so not every failure can be attributed specifically to permissions.",
+    "The audit recorded read-related API event types only; event names alone do not prove every underlying target or parameter.",
+    "No real application-directory association, file ownership, orphan status or cleanup decision was validated by this collection run.",
+    "No registered application files were opened, moved or cleaned, and no registry write or uninstall command was performed by the collector.",
+    "No software was downloaded or installed for this validation."
+  ]
+}

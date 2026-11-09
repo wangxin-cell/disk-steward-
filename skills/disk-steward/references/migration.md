@@ -1,0 +1,18 @@
+# Verified copying and later source cleanup
+
+Supported workload: a closed directory of ordinary user files, or an explicit selection of files beneath a directory, copied to a new directory with an existing parent. Source stays intact during copying. This is a content-verification workflow, not an NTFS backup or an atomic move.
+
+Repeat `--include <relative-file>` to copy a selection, using exact on-disk names and `/` separators. Do not pass wildcards or directories as selectors. Unselected files are not copied or hashed; needed parent directories are retained in the target layout. Omit `--include` only when the whole directory tree is actually intended.
+
+Downloaded Windows files can carry a `Zone.Identifier` alternate stream ([Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file?view=powershell-5.1)). Default copy plans reject ADS. For ordinary files on native Windows, read [zone-identifier.md](zone-identifier.md) and prepare a new plan with `--preserve-zone-identifier` to preserve and verify that fixed marker, up to 64 KiB per file. Unknown streams remain unsupported. Do not remove a marker to make a copy succeed.
+
+1. Identify both absolute paths, ownership, destination capacity and the user's reason for moving. Stop writers. A same-drive copy can be useful for testing but cannot solve cross-drive capacity pressure.
+2. Generate the plan. Hashing reads contents and can take time. Put the plan and receipt outside both trees. Review all errors and unsupported features; do not silently discard files to get a successful status.
+3. Explain that the target inherits destination security rather than promising source ACL preservation. Except for the explicitly selected `Zone.Identifier` policy, alternate streams remain unsupported; encryption, cloud placeholders, links and application-managed data also remain excluded. Consult the helper's rejection output for exact limits. Do not bypass its checks.
+4. After the user approves source, destination and scope, apply the exact plan ID. The helper revalidates the source and destination and copies with exclusive creation. It preserves basic file timestamps, verifies content hashes and writes a receipt. Partial failure retains the source and any partial destination; inspect the receipt.
+5. Open representative copied files in their normal application. Check empty directories and needed metadata, backups and save-path settings. Content hashes do not verify application integration or all filesystem metadata. Recheck source changes since the receipt before considering cleanup.
+6. Source cleanup uses a separate native-Windows helper after a distinct release plan: see [source-release.md](source-release.md). Do not delete anything solely because an old receipt says verified. It rehashes both sides and blocks changed files. If source files changed, generate a new copy plan to a new target or use a suitable versioned sync/backup workflow.
+
+Copying does not hold a filesystem snapshot or exclusive lock over the complete tree. Source release holds native handles for each source/target pair during final hashing and deletion, but not for every ancestor or the whole tree. Neither operation is a security boundary against hostile path swapping. Run only on user-controlled quiescent folders. A second drive can still fail; a verified copy is not a substitute for a backup policy.
+
+After source cleanup, measure volume free space. A source retained in the same drive's Recycle Bin still consumes space. Report this consequence before choosing permanent deletion versus recoverability.

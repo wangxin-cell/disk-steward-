@@ -1,0 +1,4 @@
+interface:
+  display_name: "Disk Steward"
+  short_description: "Plan disk cleanup and verify cross-drive copies"
+  default_prompt: "Use $disk-steward to diagnose my C-drive space and propose what to keep, clean or relocate."

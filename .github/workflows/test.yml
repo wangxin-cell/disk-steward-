@@ -1,0 +1,20 @@
+name: tests
+# Manual opt-in: hosted runners fetch Actions and Python when dispatched.
+# Publishing this repository does not start downloads or a test run.
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  fixtures:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/check_package.py

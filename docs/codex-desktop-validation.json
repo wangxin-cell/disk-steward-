@@ -1,0 +1,76 @@
+{
+  "record_version": 1,
+  "validation_date": "2026-11-09",
+  "timezone": "Asia/Shanghai",
+  "classification": "passed_scoped_explicit_skill_diagnose_workflow",
+  "host": "Codex desktop",
+  "host_version": null,
+  "model_version": null,
+  "python_version": "3.13.11",
+  "skill_manifest_sha256": "515dc1d469b1599d8102835b1f68311553737f4c077c67c88861cb78a346affc",
+  "skill_contents_match_local_release": "0.5.1-alpha",
+  "trigger": "User explicitly invoked $disk-steward in a new desktop chat rooted at the prepared project.",
+  "fixture": {
+    "scenario": "diagnose",
+    "actual_drive": "D",
+    "synthetic_files": 35,
+    "logical_bytes": 11776,
+    "entries_examined": 39,
+    "goal_kind": "additional_free_space",
+    "goal_bytes": 1073741824,
+    "cross_volume_test": false,
+    "preexisting_user_data_scanned": false
+  },
+  "evidence": {
+    "independent_artifact_verifier_passed": true,
+    "baseline_sha256": "25cb3baed6e8d1d12657bb9aeabef800f2d91c51b75a8bb66d845970275194fa",
+    "baseline_hash_matches_original_invocation": true,
+    "source_skill_and_canary_snapshot_unchanged": true,
+    "requested_artifact_set_exact": true,
+    "parent_and_review_subagent_command_traces_reviewed": true,
+    "skill_read_observed": true,
+    "scan_plan_report_scripts_executed_successfully": true,
+    "diagnose_parent_command_count": 11,
+    "review_subagent_command_count": 3,
+    "all_reviewed_commands_exit_zero": true,
+    "all_observed_python_invocations_use_B": true,
+    "observed_file_changes_limited_to_reports": true,
+    "download_install_copy_move_cleanup_or_deletion_commands_observed": false
+  },
+  "report_review": {
+    "source_retention_requirement_preserved": true,
+    "D_drive_synthetic_scope_explicit": true,
+    "logical_size_distinguished_from_freed_space": true,
+    "no_achieved_goal_or_reclaimed_space_claim": true,
+    "overlapping_directory_totals_not_added": true,
+    "maximum_file_sample_count": 30,
+    "maximum_file_sample_logical_bytes": 11136,
+    "agent_added_contextual_notes_to_plan_and_report": true,
+    "pure_renderer_output": false
+  },
+  "artifacts": [
+    {
+      "name": "scan.json",
+      "sha256": "f0646b389903642bf8e617e9b09c88cd44bfb632280ff3290140e3d61b5ea879"
+    },
+    {
+      "name": "plan.json",
+      "sha256": "d4943ba91c1534d2a2a60875cdacbeec2c6e9f8c5481a3390aa8fbe4b2e40563"
+    },
+    {
+      "name": "decision-report.zh.md",
+      "sha256": "0304d29e13fcbf4268455a54bd26f6b10f8f9ccbf5943462b67e9a2df1733a09"
+    }
+  ],
+  "limitations": [
+    "One explicit-invocation desktop diagnose case; natural-language skill selection is not tested.",
+    "DeepSeek Harness, host-driven copy, source release and real C-drive cleanup are not tested by this case.",
+    "Previous controlled codex exec and normal-home stdio startup failures remain historical failures; this result does not identify or fix their denied resource.",
+    "The artifact verifier deliberately reports host_workflow_verified=false because it alone cannot audit a host; this supplement combines it with reviewed parent/subagent command traces and report review.",
+    "Command traces and snapshots are not a kernel-level audit of every read/write; snapshots exclude access time, ACLs and comprehensive alternate-stream state.",
+    "Some command outputs were truncated by the thread-reader; full command text and local final artifacts were separately inspected.",
+    "Host and model versions were not independently captured; the prior CLI version is not attributed to this desktop run.",
+    "No application registration or residue-ownership claim is established by this fixture.",
+    "Skill and production scripts are unchanged from the immutable local 0.5.1 archives. This public-source supplement adds documentation and evidence; historical local archives were not overwritten."
+  ]
+}

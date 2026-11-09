@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "release": "0.4.0-alpha",
+  "status": "passed",
+  "direction": "C -> D",
+  "cross_volume": true,
+  "copy_schema_version": 3,
+  "release_embedded_copy_schema_version": 3,
+  "selected_files": 2,
+  "selected_primary_bytes": 1910,
+  "selected_zone_identifier_bytes": 39,
+  "zero_length_marker_preserved": true,
+  "non_utf8_marker_bytes_preserved": true,
+  "source_preserved_after_copy": true,
+  "distinct_release_approval": true,
+  "destination_primary_and_marker_hashes_match_after_release": true,
+  "selected_source_files_removed": true,
+  "unselected_primary_and_marker_preserved": true,
+  "source_directories_preserved": true,
+  "journal_deleted_events": 2,
+  "observed_free_delta_bytes": 8192,
+  "all_fixture_remnants_and_logs_retained": true,
+  "downloads": false,
+  "limitations": [
+    "Tiny newly-created fixtures only; no real user documents scanned or touched",
+    "Observed Windows C and D volumes only; not all Windows filesystems",
+    "Native helper/CLI regression, not model execution or harness integration",
+    "Raw marker-byte preservation, not SmartScreen or Attachment Manager behavior testing",
+    "No atomic-batch, frozen-stream-inventory, or hostile concurrent mutation guarantee",
+    "Volume free-space delta can include concurrent unrelated activity"
+  ]
+}

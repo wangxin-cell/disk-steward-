@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-05",
+  "fixture_id": "disk-steward-cross-volume-58e419938111",
+  "synthetic_only": true,
+  "status": "passed",
+  "source_volume": "C:",
+  "destination_volume": "D:",
+  "filesystem_pair": "NTFS to NTFS",
+  "distinct_volume_devices_verified": true,
+  "fixture_total_bytes": 51047,
+  "selected_files": 2,
+  "selected_logical_bytes": 51000,
+  "destination_sha256_verified": true,
+  "selected_sources_removed": true,
+  "unselected_sentinel_preserved": true,
+  "source_directories_preserved": true,
+  "journal_deleting_events": 2,
+  "journal_deleted_events": 2,
+  "journal_final_status": "complete",
+  "observed_source_free_delta_bytes": 53248,
+  "downloads_or_installs": false,
+  "preexisting_user_files_accessed": false,
+  "limitations": [
+    "Tiny synthetic NTFS fixture, not a performance benchmark",
+    "Net free-space change includes concurrent filesystem activity",
+    "No Codex or DeepSeek Harness installation/discovery test"
+  ]
+}
